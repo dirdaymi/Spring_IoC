@@ -1,0 +1,2 @@
+net.entree.dao.DaoImpl
+net.entree.metier.MetierImpl
