@@ -1,27 +1,21 @@
 package net.entree.metier;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import net.entree.dao.IDao;
 
+@Service("metier")
 public class MetierImpl implements IMetier {
-    // Couplage faible : on dépend de l'interface
+
+    // @Autowired // Injection via attribut (déconseillé mais possible)
     private IDao dao;
 
-    // Injection via le constructeur (recommandé)
-    // On peut aussi mettre un constructeur sans paramètre + setter
+    @Autowired // Injection via constructeur (recommandé)
     public MetierImpl(IDao dao) {
-        this.dao = dao;
-    }
-
-    public MetierImpl() {} // Nécessaire pour l'instanciation dynamique plus tard
-
-    public void setDao(IDao dao) {
         this.dao = dao;
     }
 
     @Override
     public double calcul() {
-        double tmp = dao.getData();
-        double res = tmp * 540 / Math.cos(tmp * Math.PI);
-        return res;
+        return dao.getData() * 2; // Exemple calcul
     }
 }
