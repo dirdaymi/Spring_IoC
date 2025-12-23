@@ -18,7 +18,7 @@ Dans cette première version, nous utilisons l'instanciation statique avec l'op�
 Bien que nous utilisions des interfaces, le code reste ouvert à la modification car il faut changer le code source pour changer l'implémentation du DAO.
 
 *Exécution de la version statique :*
-![Exécution Statique](captures/execution_statique.png)
+![Exécution Statique](captures/captures/execution_statique.png)
 
 
 
@@ -27,7 +27,7 @@ Pour rendre l'application fermée à la modification, nous avons utilisé l'inst
 Cela permet de changer l'implémentation du DAO ou du Métier sans toucher au code source.
 
 *Exécution de la version dynamique :*
-![Exécution Dynamique](captures/execution_dynamique.png)
+![Exécution Dynamique](captures/captures/execution_dynamique.png)
 
 
 
@@ -36,10 +36,10 @@ Nous avons délégué la responsabilité de l'instanciation et de l'injection de
 La configuration est définie dans le fichier `config.xml`. Spring charge ce contexte et injecte les dépendances (via Setter ou Constructeur).
 
 *Configuration XML (Bean DAO et Métier) :*
-![Configuration XML](captures/config_xml.png)
+![Configuration XML](captures/captures/config_xml.png)
 
 *Exécution de la version Spring XML :*
-![Exécution Spring XML](captures/execution_spring_xml.png)
+![Exécution Spring XML](captures/captures/execution_spring_xml.png)
 
 
 
@@ -50,19 +50,19 @@ C'est la méthode la plus utilisée actuellement. Nous n'utilisons plus de XML, 
 Nous avons utilisé l'annotation `@Repository` pour la couche DAO et `@Service` pour la couche Métier.
 
 *Code DAO avec @Repository :*
-![Code DAO](captures/code_dao_annotation.png)
+![Code DAO](captures/captures/code_dao_annotation.png)
 
 ### 2. Injection de dépendances
 L'injection se fait via l'annotation `@Autowired`. Ici, nous avons utilisé l'injection par **constructeur** (recommandée).
 
 *Code Métier avec @Service et @Autowired :*
-![Code Métier](captures/code_metier_annotation.png)
+![Code Métier](captures/captures/code_metier_annotation.png)
 
 ### 3. Exécution
 La classe `PresSpringAnnotation` charge le contexte via `AnnotationConfigApplicationContext` et scanne le package `net.entree`.
 
 *Exécution finale avec Annotations :*
-![Exécution Spring Annotation](captures/execution_spring_annotation.png)
+![Exécution Spring Annotation](captures/captures/execution_spring_annotation.png)
 
 
 
